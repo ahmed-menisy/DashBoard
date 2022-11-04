@@ -4,7 +4,8 @@
 *::after,
 *:focus {
    box-sizing: border-box !important;
-   outline: none;
+   /* outline: 1px solid #000; */
+   
 }
 body {
    margin: 0;

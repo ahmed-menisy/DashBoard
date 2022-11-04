@@ -137,6 +137,9 @@ main > aside h1.title::after {
 /* End Search  */
 
 /* Start DashBoard  */
+.dash-area .card-welcome .card-body {
+   white-space: nowrap;
+}
 .dash-area .card-welcome .card-body img {
    margin-top: -50%;
    margin-left: 20px;
@@ -784,6 +787,14 @@ img.w-40px.rad-circle:first-of-type {
    }
 }
 @media (max-width: 577.98px) {
+   .plans .plans-area {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      font-size: 11px;
+   }
+
+   :root {
+      font-size: 14px;
+   }
    .profile-data ul li {
       width: calc(100% / 1);
    }
@@ -793,3 +804,18 @@ img.w-40px.rad-circle:first-of-type {
    }
 }
 /* End Media  */
+
+.darkmode--activated :is(img, td span, button:not(.darkmode-toggle)),
+.darkmode--activated ul li::after,
+.darkmode--activated :is(a.btn, .plans i, .plans .card-header, .active) {
+   mix-blend-mode: difference !important;
+}
+
+.darkmode-layer,
+.darkmode-toggle {
+   z-index: 900;
+}
+
+.darkmode--activated img.w-40px.rad-circle {
+   margin-left: unset;
+}
