@@ -1,0 +1,795 @@
+@import url("../node_modules/animate.css/animate.css");
+/* Start Global */
+body {
+   background-color: rgb(241, 245, 249);
+}
+
+.content-hero {
+   overflow-y: auto;
+   overflow-x: hidden;
+   height: 100vh;
+}
+
+::-webkit-scrollbar {
+   width: 0.6875rem;
+   height: 0.6875rem;
+}
+
+::-webkit-scrollbar-track {
+   background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: rgb(13, 105, 213);
+}
+
+:root {
+   --transition: 0.5s;
+   --color-shadow: rgba(0, 0, 0, 0.02);
+}
+
+main > aside {
+   white-space: nowrap;
+   overflow: hidden;
+   width: 250px;
+   transition: width 1s;
+   box-shadow: 10px 0 10px var(--color-shadow);
+   padding: 10px;
+}
+
+section {
+   width: 100%;
+}
+
+.content-hero section:not(:first-child) {
+   display: none;
+}
+
+.show {
+   display: block !important;
+}
+
+article:not(article.table, .profile-data) {
+   content-visibility: auto;
+}
+
+.main-title {
+   position: relative;
+   width: fit-content;
+   font-size: 2.1875rem;
+}
+
+.main-title::after,
+.main-title::before {
+   content: "";
+   position: absolute;
+   top: 110%;
+   left: 0;
+   height: 3px;
+}
+
+.main-title::before {
+   width: 80%;
+   background-color: #fff;
+}
+
+.main-title::after {
+   width: 30%;
+   background-color: #000;
+}
+/* Start Aside  */
+main > aside a.active {
+   background-color: #f7f7f7;
+}
+
+main > aside h1.title {
+   position: relative;
+   text-shadow: 0 0 2px #0005;
+}
+
+main > aside h1.title::after,
+main > aside h1.title::before {
+   content: "";
+   position: absolute;
+   top: 150%;
+   left: 50%;
+   background-color: #000;
+}
+
+main > aside h1.title::before {
+   transform: translateX(-50%);
+   width: 40%;
+   height: 2px;
+}
+
+main > aside h1.title::after {
+   transform: translate(-50%, -50%);
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   box-shadow: 0 0 0 3px #fff;
+}
+/* End Aside  */
+
+/* Start Search  */
+.search-area {
+   box-shadow: 0 10px 5px var(--color-shadow);
+}
+.search input {
+   width: 160px;
+   transition: width var(--transition);
+}
+
+.search input:focus {
+   width: 220px;
+}
+
+.icons .notification::before {
+   content: "";
+   position: absolute;
+   top: -5px;
+   right: 5px;
+   background-color: tomato;
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+}
+/* End Search  */
+
+/* Start DashBoard  */
+.dash-area .card-welcome .card-body img {
+   margin-top: -50%;
+   margin-left: 20px;
+   outline: 5px solid #fff;
+   border-radius: 50%;
+}
+
+.dash-area .card-target .target-num {
+   position: absolute;
+   top: -30px;
+   right: 0;
+   color: #fff;
+   font-size: 12px;
+   font-weight: 600;
+   padding: 2px 7px;
+   border-radius: 5px;
+}
+
+.dash-area .card-target .target-num::before {
+   content: attr(data-number);
+}
+
+.dash-area .card-target .target-num::after {
+   content: "";
+   position: absolute;
+   left: 50%;
+   top: 100%;
+   transform: translateX(-50%);
+   border: 5px solid transparent;
+   border-color: var(--change-color) transparent transparent transparent;
+}
+
+.dash-area .card-news img {
+   width: 100px;
+   border-radius: 6px;
+}
+
+@media (max-width: 991.98px) {
+   .dash-area .card-news .text {
+      text-align: center;
+   }
+   .dash-area .card-news .item {
+      flex-direction: column;
+   }
+}
+
+.dash-area :is(.card-news, .card-tasks) .item:not(:last-child) {
+   border-bottom: 1px solid #eee;
+}
+
+.dash-area .card-uploads .card-body > .item:not(:last-child) {
+   border-bottom: 1px solid #eee;
+}
+
+.dash-area .card-Project ul {
+   border-left: 2px solid rgb(0, 117, 255);
+}
+
+.dash-area .card-Project ul li {
+   position: relative;
+   padding-left: 20px;
+}
+
+.dash-area .card-Project ul li::before,
+.dash-area .card-Project ul li::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 0;
+   transform: translateX(-50%);
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   z-index: 3;
+}
+
+.dash-area .card-Project ul li::before {
+   background-color: white;
+   outline: 2px solid rgb(0, 117, 255);
+}
+
+.dash-area .card-Project ul li:not(:last-child)::after {
+   background-color: rgb(0, 117, 255);
+   border: 2px solid rgb(255, 255, 255);
+}
+
+.dash-area .card-Project ul li:nth-child(4):after {
+   animation: 1s bg-color infinite alternate;
+}
+
+@keyframes bg-color {
+   0% {
+      background-color: rgb(255, 255, 255);
+   }
+   100% {
+      background-color: rgb(0, 117, 255);
+   }
+}
+
+.dash-area .card-reminders li {
+   border-left: 2px solid var(--change-color);
+   margin-left: 20px;
+   padding-left: 10px;
+   position: relative;
+}
+
+.dash-area .card-reminders li::before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: -20px;
+   transform: translate(-50%, -50%);
+   width: 15px;
+   height: 15px;
+   border-radius: 50%;
+   background-color: var(--change-color);
+}
+
+.dash-area .card-stats .item {
+   position: relative;
+}
+
+.dash-area .card-stats .item span:nth-child(2) {
+   padding-left: 50px;
+}
+
+.dash-area .card-stats i {
+   position: absolute;
+   left: 0;
+   top: 0;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 40px;
+   color: #fff;
+   transition: transform var(--transition);
+}
+
+.dash-area .card-stats i:hover {
+   transform: rotate(5deg);
+}
+
+.dash-area .table-projects table {
+   border-collapse: collapse;
+}
+
+.dash-area .table-projects thead th {
+   background-color: #eee;
+   padding: 15px;
+   border: 1px solid #eee;
+}
+
+.dash-area .table-projects tbody td {
+   border: 1px solid #eee;
+   padding: 15px 10px;
+}
+
+.dash-area .table-projects .card-boy {
+   overflow-x: auto;
+}
+
+img.w-40px.rad-circle {
+   margin-left: -20px;
+   position: relative;
+   border: 2px solid #fff;
+   box-sizing: content-box !important;
+   z-index: 1;
+   transition: z-index 0.2s;
+}
+
+img.w-40px.rad-circle:hover {
+   z-index: 999;
+}
+
+img.w-40px.rad-circle:first-of-type {
+   margin-left: unset;
+}
+
+.dash-area .table-projects :is(th, td) {
+   white-space: nowrap;
+}
+/* End DashBoard  */
+
+/* Start settings */
+.settings-area .card-security .item:not(:last-of-type) {
+   padding-bottom: 5px;
+   border-bottom: 1px solid #eee;
+}
+
+.settings-area .card-social .data {
+   height: 40px;
+   border: 1px solid #ddd;
+   background-color: #efefef81;
+   border-radius: 5px;
+   padding: 0 10px;
+   font-size: 14px;
+}
+
+.settings-area .card-social .data i {
+   color: #aaa;
+   transition: color var(--transition);
+}
+
+.settings-area .card-social .data:focus-within i {
+   color: #333;
+}
+
+.settings-area .card-social input {
+   all: unset;
+   height: inherit;
+   border-left: 1px solid #ddd;
+   padding-left: 4px;
+   margin-left: 6px;
+}
+
+.settings-area .card-widgets input {
+   display: none;
+   appearance: none;
+}
+
+.settings-area .card-widgets input + label {
+   position: relative;
+   padding-left: 25px;
+   cursor: pointer;
+}
+
+.settings-area .card-widgets input + label::before,
+.settings-area .card-widgets input + label::after {
+   content: "";
+   position: absolute;
+   width: 19px;
+   height: 19px;
+   border-radius: 2px;
+   left: 0;
+   top: 50%;
+   margin-top: calc(-19px / 2);
+   padding: 2px;
+}
+
+.settings-area .card-widgets input + label::before {
+   border: 2px solid #aaa;
+}
+
+.settings-area .card-widgets input:checked + label::after {
+   transform: scale(1);
+}
+
+.settings-area .card-widgets input + label::after {
+   font-family: var(--fa-style-family-classic);
+   content: "\f00c";
+   font-weight: 900;
+   background-color: var(--primary);
+   color: white;
+   font-size: 12px;
+   width: 18px;
+   height: 18px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transform: scale(0) rotate(360deg);
+   transition: 0.3s;
+}
+
+.settings-area .card-manager ul {
+   border-bottom: 1px solid #eee;
+   padding-bottom: 2.5rem;
+}
+
+.settings-area .card-manager input {
+   display: none;
+   appearance: none;
+}
+
+.settings-area .card-manager ul input + label {
+   position: relative;
+   padding-left: 25px;
+   cursor: pointer;
+}
+
+.settings-area .card-manager ul input + label::before,
+.settings-area .card-manager ul input + label::after {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 0;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: #fff;
+}
+
+.settings-area .card-manager ul input + label::before {
+   transform: translateY(-50%);
+   border: 2px solid rgb(124, 121, 121);
+}
+
+.settings-area .card-manager ul input:checked + label::before {
+   border-color: var(--primary);
+}
+.settings-area .card-manager ul input + label::after {
+   width: 12px;
+   height: 12px;
+   margin-top: calc(-12px / 2);
+   margin-left: 4px;
+   transform: scale(0);
+   background-color: var(--primary);
+   transition: transform var(--transition);
+}
+
+.settings-area .card-manager ul input:checked + label::after {
+   transform: scale(1);
+   border-color: var(--primary);
+}
+
+.settings-area .card-manager .items-check label {
+   display: block;
+   text-align: center;
+   cursor: pointer;
+   padding: 10px;
+   border: 1px solid #eee;
+   border-radius: 5px;
+}
+
+.settings-area .card-manager .items-check input:checked + label {
+   border-color: var(--primary);
+   color: var(--primary);
+}
+
+/* End Settings */
+
+/* Start Profile */
+.profile-area .profile-infor {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+}
+.profile-area figure {
+   width: 30%;
+   margin: 0;
+}
+
+.profile-data {
+   width: calc(70% - 20px);
+}
+
+.profile-area figure img {
+   width: 200px;
+}
+.profile-area figure .progress {
+   height: 6px;
+   background-color: #ededed;
+   border-radius: 2px;
+   width: 70%;
+   margin: 10px auto;
+   overflow: hidden;
+}
+.profile-area figure .progress .progress-bar {
+   height: inherit;
+   width: 70%;
+   background-color: var(--primary);
+}
+
+.profile-data {
+   position: relative;
+}
+
+.profile-data .item:not(:last-child) {
+   border-bottom: 1px solid #eee;
+}
+
+.profile-data .item {
+   transition: background-color var(--transition);
+}
+
+.profile-data .item:hover {
+   background-color: #f6f6f6;
+}
+
+.profile-data::before {
+   content: "";
+   width: 2px;
+   height: 80%;
+   background-color: #eee;
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+}
+
+.profile-data ul {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   row-gap: 20px;
+}
+
+.profile-data ul li {
+   width: calc(100% / 3);
+   font-size: 14px;
+}
+
+.profile-area footer {
+   display: flex;
+   flex-wrap: wrap;
+   row-gap: 20px;
+   justify-content: space-between;
+}
+
+.profile-area footer .skils {
+   width: 30%;
+}
+
+.profile-area footer .actives {
+   width: calc(70% - 25px);
+}
+
+.profile-area footer .actives img {
+   width: 80px;
+   height: 80px;
+}
+
+.profile-area footer .actives .active-item:not(:last-child) {
+   border-bottom: 1px solid #eee;
+   padding-bottom: 2px;
+}
+
+/* End Profile */
+
+/* Start Projects */
+.projects .progress {
+   height: 7px;
+   width: 70%;
+   background-color: #eee;
+   border-radius: 50px;
+   overflow: hidden;
+}
+.projects .progress .progress-bar {
+   width: 70%;
+   height: inherit;
+   background-color: var(--prog-color);
+   border-radius: inherit;
+}
+/* End Projects */
+
+/* Start Courses */
+.courses .profile-courses .card {
+   overflow: hidden;
+}
+
+.courses .profile-courses .p-top {
+   position: absolute;
+   top: 15px;
+   left: 15px;
+}
+
+.courses .profile-courses .card-footer::before {
+   content: "Course Info";
+   position: absolute;
+   left: 50%;
+   top: -50%;
+   transform: translate(-50%);
+   background-color: var(--primary);
+   padding: 4px 8px;
+   color: #fff;
+   border-radius: 8px;
+   font-size: 11px;
+}
+/* End Courses */
+
+/* Start Friends  */
+.friends .vip {
+   position: relative;
+}
+
+.friends .vip::before {
+   position: absolute;
+   content: "VIP";
+   color: var(--red-opacity);
+   font-size: 35px;
+   font-weight: bold;
+   right: 10px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.friends .contact i {
+   background-color: #eee;
+   width: 40px;
+   height: 40px;
+   display: grid;
+   place-content: center;
+   border-radius: 50%;
+   color: #888;
+   cursor: pointer;
+   transition: color var(--transition), background-color var(--transition);
+}
+.friends .contact i:hover {
+   background-color: var(--primary);
+   color: #fff;
+}
+
+/* End Friends  */
+
+/* Start Files  */
+.files .files-area {
+   display: grid;
+   grid-template-columns: 1fr 220px;
+   grid-auto-flow: dense;
+   gap: 10px;
+   align-items: flex-start;
+}
+
+.files .files-area .icon {
+   display: grid;
+   place-content: center;
+   width: 40px;
+   background-color: var(--color);
+   color: var(--color-o);
+   margin-right: 10px;
+}
+/* End Files  */
+
+/* Start Plans  */
+.plans .plans-area {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+   gap: 20px;
+}
+
+.plans .plans-area .card {
+   padding: 10px;
+}
+
+.plans .plans-area .card .card-header {
+   background-color: var(--green);
+   text-align: center;
+   padding: 20px;
+   outline: 3px solid var(--green);
+   border: 3px solid #fff;
+}
+
+.plans .plans-area .card:nth-child(2) .card-header {
+   background-color: var(--primary);
+   outline: 3px solid var(--primary);
+}
+
+.plans .plans-area .card:nth-child(3) .card-header {
+   background-color: var(--orang);
+   outline: 3px solid var(--orang);
+}
+
+.plans .plans-area .card-header :is(h3, p) {
+   margin: 0;
+   font-size: 30px;
+}
+
+.plans .plans-area .card .card-body li {
+   display: flex;
+   align-items: center;
+   padding: 10px 0;
+   border-bottom: 1px solid #eee;
+}
+
+.plans .plans-area .card .card-body li .help {
+   margin-left: auto;
+   color: #aaa;
+   cursor: pointer;
+}
+
+.plans .plans-area .card .card-body li .yes {
+   color: var(--green);
+}
+
+.plans .plans-area .card .card-body i {
+   color: var(--red);
+}
+
+.plans .plans-area .card button {
+   all: unset;
+   padding: 3px 10px;
+   color: #fff;
+   border-radius: 5px;
+   display: block;
+   background-color: var(--color);
+   cursor: pointer;
+}
+/* End Plans  */
+
+/* Start Media  */
+@media (max-width: 1199.98px) {
+   .profile-data ul li {
+      width: calc(100% / 1);
+   }
+}
+
+@media (max-width: 991.98px) {
+   .profile .profile-infor :is(figure, .profile-data),
+   .profile-area footer .skils,
+   .profile-area footer .actives {
+      width: 100%;
+   }
+   .profile-data ul li {
+      width: calc(100% / 2);
+   }
+   .profile-data {
+      padding-left: 30px;
+   }
+
+   .files .files-area {
+      grid-template-columns: 1fr;
+   }
+   .files .files-area > div {
+      grid-row: 2;
+   }
+}
+@media screen and (max-width: 767.98px) {
+   main > aside {
+      width: 60px;
+   }
+   main > aside h1.title {
+      font-size: 9px;
+   }
+   main > aside h1.title::after,
+   main > aside h1.title::before {
+      content: unset;
+   }
+   main > aside span:last-child {
+      display: none;
+   }
+   .profile-data ul li,
+   .profile-area footer .skils,
+   .profile-area footer .active {
+      width: calc(100% / 1);
+   }
+   .profile-data {
+      padding-left: 30px;
+      text-align: center;
+   }
+   .profile-data .toggle-check {
+      width: fit-content;
+      margin: auto;
+   }
+}
+@media (max-width: 577.98px) {
+   .profile-data ul li {
+      width: calc(100% / 1);
+   }
+
+   .profile :is(figure, .profile-data) {
+      width: 100%;
+   }
+}
+/* End Media  */
